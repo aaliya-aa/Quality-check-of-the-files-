@@ -1,0 +1,7 @@
+# First use fastqc to check the quality of our fastq files
+fastqc *.gz -t 4
+
+#trimming the adapters if the quality of the fastq files are poor
+#Trimmomatic (Install in the folder where all files are)
+java -jar /home/thibault/Aaliya/Trimmomatic-0.39/trimmomatic-0.39.jar SE -phred33 BMS_S1_1.fastq.gz BMS_S1_1_trimmed.fastq.gz ILLUMINACLIP:/home/thibault/Aaliya/Trimmomatic-0.39/adapters/TruSeq3-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+
